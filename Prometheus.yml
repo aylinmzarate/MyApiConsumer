@@ -2,10 +2,14 @@ global:
   scrape_interval: 15s
 
 scrape_configs:
-  - job_name: 'dotnet_app'
+  - job_name: 'api_monitoring'
     static_configs:
-      - targets: ['localhost:80']  # Aquí monitoreará la API en C#
+      - targets: ['host.docker.internal:80']
 
-  - job_name: 'docker'
+  - job_name: 'docker_host_monitoring'
     static_configs:
-      - targets: ['localhost:9323']
+      - targets: ['localhost:9090']
+
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
