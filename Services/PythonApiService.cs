@@ -18,6 +18,7 @@ public class PythonApiService
         try
         {
             var response = await _httpClient.GetAsync($"http://127.0.0.1:5000/recommend?query={query}");
+
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsStringAsync();
         }
