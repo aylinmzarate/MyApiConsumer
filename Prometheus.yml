@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'dotnet_app'
+    static_configs:
+      - targets: ['localhost:80']  # Aquí monitoreará la API en C#
+
+  - job_name: 'docker'
+    static_configs:
+      - targets: ['localhost:9323']
